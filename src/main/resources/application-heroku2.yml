@@ -1,0 +1,26 @@
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        ddl-auto: update
+        order_inserts: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          batch_size: 50
+          lob:
+            non_contextual_creation: true
+        temp:
+          use_jdbc_metadata_defaults: false
+
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://ec2-35-171-31-33.compute-1.amazonaws.com:5432/daqoachh02dskg
+    driver-class-name: org.postgresql.Driver
+    username: cnqvrbrbcyyuwe
+    password: 004d5a7a973b2c27d4fa3f8969bd91b9a8fabff80685a5bff9a0335b2e0eb345
+
+logging:
+  level:
+    root: INFO
+#  file: Conficiet.log
