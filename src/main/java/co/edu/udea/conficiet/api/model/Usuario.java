@@ -1,5 +1,7 @@
 package co.edu.udea.conficiet.api.model;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -35,7 +37,7 @@ public class Usuario implements Serializable {
     private String apellidos;
 
     @JoinColumn(name = "rol", nullable = false)
-    @ManyToOne(optional = false,  fetch = FetchType.LAZY)
+    @ManyToOne(optional = false,  fetch = FetchType.EAGER)
     private Rol rol;
 
     @NotNull

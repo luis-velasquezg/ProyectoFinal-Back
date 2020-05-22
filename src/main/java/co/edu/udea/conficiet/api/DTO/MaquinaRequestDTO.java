@@ -11,8 +11,6 @@ import java.time.LocalDateTime;
 
 @Data
 @Generated
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -44,43 +42,39 @@ public class MaquinaRequestDTO {
     private String ubicacion;
 
     @NotNull
-    @NotBlank
-    @Size(min = 3, max = 45)
     private double precioCompra;
 
     @NotNull
-    @NotBlank
     private int reciboCompra;
-
-    @NotNull
-    @NotBlank
-    private LocalDateTime fechaCreacion;
 
     private LocalDateTime fechaVenta;
 
     private Usuario vendedor;
 
     public static Maquina toModel(MaquinaRequestDTO maquinaACrear) {
-//        return MaquinaSaveCmd.builder().marca(maquinaACrear.getMarca()).modelo(maquinaACrear.getModelo())
-//                .tipo(maquinaACrear.getTipo()).estado(maquinaACrear.getEstado())
-//                .ubicacion(maquinaACrear.getUbicacion).precioCompra(maquinaACrear.getPrecioCompra())
-//                .reciboCompra(maquinaACrear.getReciboCompra()).fechaCreacion(maquinaACrear.getFechaCreacion())
-//                .fechaVenta(maquinaACrear.getFechaVenta()).vendedor(maquinaACrear.getVendedor()).build();
 
-        Maquina maquina = new  Maquina();
+        return Maquina.builder().marca(maquinaACrear.getMarca()).modelo(maquinaACrear.getModelo())
+                .tipo(maquinaACrear.getTipo()).estado(maquinaACrear.getEstado())
+                .ubicacion(maquinaACrear.getUbicacion()).precioCompra(maquinaACrear.getPrecioCompra())
+                .reciboCompra(maquinaACrear.getReciboCompra()).fechaVenta(maquinaACrear.getFechaVenta())
+                .vendedor(maquinaACrear.getVendedor()).build();
 
-        maquina.setMarca(maquinaACrear.getMarca());
-        maquina.setModelo(maquinaACrear.getModelo());
-        maquina.setTipo(maquinaACrear.getTipo());
-        maquina.setEstado(maquinaACrear.getEstado());
-        maquina.setUbicacion(maquinaACrear.getUbicacion());
-        maquina.setPrecioCompra(maquinaACrear.getPrecioCompra());
-        maquina.setReciboCompra(maquinaACrear.getReciboCompra());
-        maquina.setFechaCreacion(maquinaACrear.getFechaCreacion());
-        maquina.setFechaVenta(maquinaACrear.getFechaVenta());
-        maquina.setVendedor(maquinaACrear.getVendedor());
 
-        return maquina;
+//        Maquina maquina = new  Maquina();
+//
+//        maquina.setId(maquinaACrear.getId());
+//        maquina.setMarca(maquinaACrear.getMarca());
+//        maquina.setModelo(maquinaACrear.getModelo());
+//        maquina.setTipo(maquinaACrear.getTipo());
+//        maquina.setEstado(maquinaACrear.getEstado());
+//        maquina.setUbicacion(maquinaACrear.getUbicacion());
+//        maquina.setPrecioCompra(maquinaACrear.getPrecioCompra());
+//        maquina.setReciboCompra(maquinaACrear.getReciboCompra());
+//        maquina.setFechaCreacion(maquinaACrear.getFechaCreacion());
+//        maquina.setFechaVenta(maquinaACrear.getFechaVenta());
+//        maquina.setVendedor(maquinaACrear.getVendedor());
+//
+//        return maquina;
 
     }
 

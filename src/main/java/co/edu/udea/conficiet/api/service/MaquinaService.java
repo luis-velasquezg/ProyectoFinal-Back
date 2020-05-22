@@ -13,4 +13,9 @@ public interface MaquinaService {
 
     List<MaquinaResponseDTO> listar();
 
+    Maquina buscarPorId(@NotNull int id);
+
+    Maquina actualizar(@NotNull int id, @NotNull MaquinaRequestDTO maquinaAActualizar);
+
+    void eliminarPorId(@NotNull int id);
 }

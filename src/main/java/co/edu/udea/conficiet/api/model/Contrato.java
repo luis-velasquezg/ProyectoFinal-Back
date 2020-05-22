@@ -36,7 +36,7 @@ public class Contrato implements Serializable {
     private TipoContrato tipo;
 
     @JoinColumn(name = "empleado", nullable = false)
-    @ManyToOne(optional = false,  fetch = FetchType.LAZY)
+    @ManyToOne(optional = false,  fetch = FetchType.EAGER)
     private Usuario empleado;
 
 }
