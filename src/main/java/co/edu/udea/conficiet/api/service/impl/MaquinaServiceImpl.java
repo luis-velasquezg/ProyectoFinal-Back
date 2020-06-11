@@ -54,8 +54,7 @@ public class MaquinaServiceImpl implements MaquinaService {
     @Transactional(readOnly = true)
     public Maquina buscarPorId(@NotNull int id) {
         Maquina maquinaEncontrada = maquinaRepository.findMaquinaById(id);
-//        System.out.println("[Servicio] Vendedor id: " + maquinaEncontrada.getVendedor().getId());
-//        System.out.println("[Servicio] Vendedor nombre: " + maquinaEncontrada.getVendedor().getNombres());
+
         return maquinaEncontrada;
     }
 

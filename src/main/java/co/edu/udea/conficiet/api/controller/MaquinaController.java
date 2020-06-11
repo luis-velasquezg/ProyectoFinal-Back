@@ -34,7 +34,7 @@ public class MaquinaController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<MaquinaResponseDTO> BuscarPorID(@Valid @PathVariable("id") @NotNull int id) {
+    public ResponseEntity<MaquinaResponseDTO> buscarPorId(@Valid @PathVariable("id") @NotNull int id) {
         Maquina maquinaEncontrada = maquinaService.buscarPorId(id);
 
         if (maquinaEncontrada == null)
