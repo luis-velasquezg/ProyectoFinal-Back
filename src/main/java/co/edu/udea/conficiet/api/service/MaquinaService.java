@@ -1,7 +1,7 @@
 package co.edu.udea.conficiet.api.service;
 
-import co.edu.udea.conficiet.api.DTO.MaquinaRequestDTO;
-import co.edu.udea.conficiet.api.DTO.MaquinaResponseDTO;
+import co.edu.udea.conficiet.api.DTO.MaquinaDTO.MaquinaRequestDTO;
+import co.edu.udea.conficiet.api.DTO.MaquinaDTO.MaquinaResponseDTO;
 import co.edu.udea.conficiet.api.model.Maquina;
 
 import javax.validation.constraints.NotNull;

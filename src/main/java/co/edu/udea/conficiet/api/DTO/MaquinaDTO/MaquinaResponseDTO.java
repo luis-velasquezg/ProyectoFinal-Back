@@ -1,4 +1,4 @@
-package co.edu.udea.conficiet.api.DTO;
+package co.edu.udea.conficiet.api.DTO.MaquinaDTO;
 
 import co.edu.udea.conficiet.api.model.Maquina;
 import co.edu.udea.conficiet.api.model.Usuario;

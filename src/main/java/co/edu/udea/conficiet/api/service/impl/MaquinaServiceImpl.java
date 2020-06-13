@@ -1,7 +1,8 @@
 package co.edu.udea.conficiet.api.service.impl;
 
-import co.edu.udea.conficiet.api.DTO.MaquinaRequestDTO;
-import co.edu.udea.conficiet.api.DTO.MaquinaResponseDTO;
+
+import co.edu.udea.conficiet.api.DTO.MaquinaDTO.MaquinaResponseDTO;
+import co.edu.udea.conficiet.api.DTO.MaquinaDTO.MaquinaRequestDTO;
 import co.edu.udea.conficiet.api.model.Maquina;
 import co.edu.udea.conficiet.api.repository.MaquinaRepository;
 import co.edu.udea.conficiet.api.service.MaquinaService;
