@@ -2,11 +2,10 @@ package co.edu.udea.conficiet.api.controller;
 
 
 
-import co.edu.udea.conficiet.api.DTO.MaquinaDTO.MaquinaRequestDTO;
-import co.edu.udea.conficiet.api.DTO.MaquinaDTO.MaquinaResponseDTO;
+
 import co.edu.udea.conficiet.api.DTO.UsuarioDTO.UsuarioRequestDTO;
 import co.edu.udea.conficiet.api.DTO.UsuarioDTO.UsuarioResponseDTO;
-import co.edu.udea.conficiet.api.service.MaquinaService;
+import co.edu.udea.conficiet.api.service.UsuarioService;
 import io.swagger.annotations.Api;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

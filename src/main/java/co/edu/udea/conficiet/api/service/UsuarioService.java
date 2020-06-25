@@ -16,9 +16,9 @@ public interface UsuarioService {
 
     List<UsuarioResponseDTO> listar();
 
-    Usuario buscarPorId(@NotNull int id);
+    UsuarioResponseDTO buscarPorId(@NotNull int id);
 
-    Usuario actualizar(@NotNull int id, @NotNull UsuarioRequestDTO usuarioAActualizar);
+    UsuarioResponseDTO actualizar(@NotNull int id, @NotNull UsuarioRequestDTO usuarioAActualizar);
 
     void eliminarPorId(@NotNull int id);
 	

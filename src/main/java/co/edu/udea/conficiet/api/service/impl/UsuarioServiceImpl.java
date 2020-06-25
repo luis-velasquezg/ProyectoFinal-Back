@@ -1,10 +1,12 @@
 package co.edu.udea.conficiet.api.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import co.edu.udea.conficiet.api.DTO.UsuarioDTO.UsuarioRequestDTO;
 import co.edu.udea.conficiet.api.DTO.UsuarioDTO.UsuarioResponseDTO;
@@ -16,6 +18,9 @@ import co.edu.udea.conficiet.api.service.UsuarioService;
 public class UsuarioServiceImpl implements UsuarioService{
 	
 	private UsuarioRepository usuarioRepository;
+	private List <Usuario> usuarios;
+	private List<UsuarioResponseDTO> usuariosResponseDTO;
+	private UsuarioResponseDTO usuarioResponseDTO;
 	
 	public UsuarioServiceImpl (UsuarioRepository usuarioRepository) {
 		this.usuarioRepository = usuarioRepository;
@@ -30,25 +35,45 @@ public class UsuarioServiceImpl implements UsuarioService{
 
 	@Override
 	public List<UsuarioResponseDTO> listar() {
+		usuarioResponseDTO = new UsuarioResponseDTO();
+		usuariosResponseDTO = new ArrayList<>();
+		usuarios = usuarioRepository.findAll();
+		
+		for(Usuario usuario : usuarios) {
+			usuariosResponseDTO.add(usuarioResponseDTO.fromModel(usuario));
+		}
 		// TODO Auto-generated method stub
-		return null;
+		return usuariosResponseDTO;
 	}
 
 	@Override
-	public Usuario buscarPorId(@NotNull int id) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional(readOnly = true)
+	public UsuarioResponseDTO buscarPorId(@NotNull int id) {
+		Usuario usuarioEncontrado = usuarioRepository.findUsuarioById(id);
+		UsuarioResponseDTO usuarioEncontradoDTO= new UsuarioResponseDTO();
+		usuarioEncontradoDTO = usuarioEncontradoDTO.fromModel(usuarioEncontrado);
+		return usuarioEncontradoDTO;
 	}
 
 	@Override
-	public Usuario actualizar(@NotNull int id, @NotNull UsuarioRequestDTO usuarioAActualizar) {
-		// TODO Auto-generated method stub
-		return null;
+	public UsuarioResponseDTO actualizar(@NotNull int id, @NotNull UsuarioRequestDTO usuarioAActualizarDTO) {
+		Usuario usuarioEnBaseDatos = usuarioRepository.findUsuarioById(id);
+		
+		Usuario usuarioAActualizar = usuarioEnBaseDatos.toBuilder().id(usuarioAActualizarDTO.getId()).nombres(usuarioAActualizarDTO.getNombres())
+	            .apellidos(usuarioAActualizarDTO.getApellidos()).rol(usuarioAActualizarDTO.getRol())
+	            .usuario(usuarioAActualizarDTO.getUsuario()).contrasenna(usuarioAActualizarDTO.getContrasenna())
+	            .telefono(usuarioAActualizarDTO.getTelefono()).estaActivo(usuarioAActualizarDTO.getEstaActivo()).build();
+		
+		Usuario usuarioActualizado = usuarioRepository.save(usuarioAActualizar);
+		
+		UsuarioResponseDTO usuarioActualizadoDTO = new UsuarioResponseDTO().fromModel(usuarioActualizado);
+		return usuarioActualizadoDTO;
 	}
 
 	@Override
+	@Transactional()
 	public void eliminarPorId(@NotNull int id) {
-		// TODO Auto-generated method stub
+		usuarioRepository.deleteUsuarioById(id);
 		
 	}
 	
