@@ -50,7 +50,6 @@ public class UsuarioRequestDTO {
     private String telefono;
 
     @NotNull
-    @NotBlank
     private Boolean estaActivo;
 
 
