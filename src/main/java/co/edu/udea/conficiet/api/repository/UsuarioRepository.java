@@ -10,5 +10,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String> {
 	
 	public Usuario findUsuarioById(int id);
 	public void deleteUsuarioById(int id);
+	public Usuario findUsuarioByUsuario(String username);
 
 }

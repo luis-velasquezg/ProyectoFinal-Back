@@ -47,6 +47,23 @@ public class UsuarioController {
     	
         return ResponseEntity.ok(usuarioEncontrado);
     }
+    
+    @GetMapping(path = "/login/{usuario}&{contrasenna}")
+    public ResponseEntity<UsuarioResponseDTO> login (@Valid @PathVariable ("usuario") @NotNull String usuario ,
+    		 @Valid @PathVariable ("contrasenna") @NotNull String contrasenna){
+    	/*if(usuario.equals("pepito") && contrasenna.equals("123sur")) { 
+    		return ResponseEntity.ok(null);
+		}else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}*/
+    	UsuarioResponseDTO usuarioValidado = usuarioService.verificarLogin(usuario , contrasenna);
+    	if(usuarioValidado == null) {
+    		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    	}else {
+    		return ResponseEntity.ok(usuarioValidado);
+    	}
+   
+    }
 
     @PostMapping()
     @ResponseStatus(value = HttpStatus.CREATED)

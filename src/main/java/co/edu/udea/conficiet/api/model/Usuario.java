@@ -53,8 +53,7 @@ public class Usuario implements Serializable {
     @Size(min = 7, max = 25)
     private String telefono;
 
-    @NotNull
-    @NotBlank
+    @NotNull   
     private Boolean estaActivo;
     
 

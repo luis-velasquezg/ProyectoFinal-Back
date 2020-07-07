@@ -15,6 +15,8 @@ public interface UsuarioService {
     Usuario crear(@NotNull UsuarioRequestDTO usuarioRequestDTO);
 
     List<UsuarioResponseDTO> listar();
+    
+    UsuarioResponseDTO verificarLogin (@NotNull String usuario , @NotNull String contrasena);
 
     UsuarioResponseDTO buscarPorId(@NotNull int id);
 

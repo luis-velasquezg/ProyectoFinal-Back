@@ -76,6 +76,25 @@ public class UsuarioServiceImpl implements UsuarioService{
 		usuarioRepository.deleteUsuarioById(id);
 		
 	}
+
+	@Override
+	public UsuarioResponseDTO verificarLogin(@NotNull String usuario, @NotNull String contrasena) {
+		
+		Usuario usuarioEncontrado = new Usuario();
+		usuarioEncontrado = usuarioRepository.findUsuarioByUsuario(usuario);
+		if(usuarioEncontrado == null) {
+			return null;
+		}
+		
+		String contrasenaUsuarioEncontrado = usuarioEncontrado.getContrasenna();
+		if(contrasenaUsuarioEncontrado.equals(contrasena)) {
+			UsuarioResponseDTO usuarioEncontradoDTO = new UsuarioResponseDTO().fromModel(usuarioEncontrado);
+			return usuarioEncontradoDTO;
+		}else {
+			return null;
+		}
+		
+	}
 	
 	
 	
